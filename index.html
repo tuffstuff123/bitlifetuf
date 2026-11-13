@@ -1,25 +1,83 @@
-<!DOCTYPE html>
-<html lang="en-us">
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#10130f" />
+    <meta name="description" content="Start a new life and see where your choices take you in this browser-based life simulation." />
+    <title>LifeSim — Play in your browser</title>
+    <link rel="icon" href="./logo.png" />
+    <link rel="stylesheet" href="./style.css" />
+    <script defer src="./Build/UnityLoader.js"></script>
+    <script defer src="./app.js"></script>
+  </head>
+  <body>
+    <header class="topbar">
+      <a class="wordmark" href="#home" aria-label="LifeSim home"><span class="brand-mark">L</span> LifeSim</a>
+      <a class="top-link" href="#about">About the game <span aria-hidden="true">↗</span></a>
+    </header>
 
-<head>
-  <meta charset="utf-8">
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-  <title>BitLife FULLSCREEN Online</title>
-  <link rel="canonical" href="https://bitlifefree.online" />
-  <link rel="stylesheet" href="style.css" />
-  <script src="TemplateData/UnityProgress.js"></script>
-  <script src="Build/UnityLoader.js"></script>
-  <script type="application/javascript" src="/js/main.js"></script>
-  <script>
-    var unityInstance = UnityLoader.instantiate("gameContainer", "Build/BitLife.json", { onProgress: UnityProgress });
-  </script>
-</head>
+    <main id="home">
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="hero-copy">
+          <p class="eyebrow"><span class="live-dot"></span> YOUR NEXT LIFE STARTS HERE</p>
+          <h1 id="hero-title">One life.<br /><span>A million</span> possibilities.</h1>
+          <p class="intro">Make the choices. Follow the unexpected. See what kind of life you build — right in your browser.</p>
+          <button class="button button-primary" id="playButton" type="button">
+            <span>Start playing</span><span class="button-arrow" aria-hidden="true">→</span>
+          </button>
+          <p class="microcopy"><span aria-hidden="true">◉</span> No install needed · Best on desktop</p>
+        </div>
+        <div class="hero-art" aria-hidden="true">
+          <div class="orbit orbit-one"></div><div class="orbit orbit-two"></div>
+          <div class="sun">✦</div>
+          <div class="life-card card-one"><span>🎓</span><b>New beginnings</b><small>Every choice counts</small></div>
+          <div class="life-card card-two"><span>🌱</span><b>Make it yours</b><small>Your story, your way</small></div>
+          <div class="life-card card-three"><span>✈️</span><b>Go somewhere</b><small>Discover what's next</small></div>
+          <div class="hero-orb"></div>
+        </div>
+      </section>
 
-<body>
-  <div class="webgl-content">
-    <!-- WEBGL GAME IN FULLSCREEN - COPY AND PASTE THIS CSS - IMPORTANT: WIDTH: 100%; HEIGHT:100% -->
-    <div id="gameContainer" style="width: 100%; height: 100%;"></div>
-  </div>
-</body>
+      <section class="game-section" id="game" aria-labelledby="game-title">
+        <div class="section-heading">
+          <div><p class="eyebrow">THE GAME</p><h2 id="game-title">Ready when you are.</h2></div>
+          <span class="game-badge"><span class="live-dot"></span> Browser game</span>
+        </div>
+        <div class="game-shell">
+          <div class="game-toolbar">
+            <div class="window-dots" aria-hidden="true"><i></i><i></i><i></i></div>
+            <span id="gameStatus" role="status" aria-live="polite">Waiting to start</span>
+            <button class="icon-button" id="fullscreenButton" type="button" aria-label="Enter fullscreen" title="Enter fullscreen" disabled>⛶</button>
+          </div>
+          <div class="game-stage" id="gameStage">
+            <div class="game-placeholder" id="gamePlaceholder">
+              <div class="placeholder-icon" aria-hidden="true">✦</div>
+              <h3>Your story is waiting.</h3>
+              <p>Press start to load the game. It may take a moment the first time.</p>
+              <button class="button button-primary button-small" id="loadButton" type="button">Load game <span aria-hidden="true">→</span></button>
+            </div>
+            <div class="loading-panel" id="loadingPanel" hidden>
+              <div class="loader-mark">L</div>
+              <p id="loadingText">Getting your life ready…</p>
+              <div class="progress-track" role="progressbar" aria-label="Game loading" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><span id="progressFill"></span></div>
+            </div>
+            <div id="gameContainer" aria-label="Life simulation game"></div>
+            <div class="game-error" id="gameError" hidden>
+              <strong>We couldn't start the game.</strong>
+              <p id="errorMessage">Please refresh and try again.</p>
+              <button class="button button-secondary button-small" id="retryButton" type="button">Try again</button>
+            </div>
+          </div>
+        </div>
+        <p class="game-note">Having trouble? The game needs a modern browser with WebGL enabled. Loading can take longer on a slow connection.</p>
+      </section>
 
+      <section class="about" id="about">
+        <div class="about-icon" aria-hidden="true">☼</div>
+        <div><p class="eyebrow">A LITTLE ABOUT IT</p><h2>Every choice writes a new chapter.</h2><p>Choose your path through school, work, relationships, and all the surprises life has in store. There’s no single right way to play — just see where your decisions lead.</p></div>
+      </section>
+    </main>
+
+    <footer><span>Made for curious minds.</span><span>Fan-made browser portal. Not affiliated with or endorsed by Candywriter, LLC.</span></footer>
+  </body>
 </html>
